@@ -11,6 +11,7 @@ var content_element = $('.content');
 
 var diamond_menu     = $('.diamond_menu');
 var diamond_menu_item= $('.diamond_menu>li');
+var diamond_menu_item_img = $('.diamond_menu>li img');
 
 var resize_blc = function(){
 
@@ -45,6 +46,9 @@ var resize_blc = function(){
     var mr_menu_item = (diamond_menu.width() - diamond_menu.height() * 4) / 4 - 4;
 
     diamond_menu_item.css( {'height': diamond_menu.height() , 'width': diamond_menu.height(), 'margin-right': mr_menu_item});
+
+    diamond_menu_item_img.css({'height': diamond_menu.height() , 'width': diamond_menu.height()});
+
 
 };
 
