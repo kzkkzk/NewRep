@@ -49,6 +49,7 @@ var resize_blc = function(){
 
     diamond_menu_item_img.css({'height': diamond_menu.height() , 'width': diamond_menu.height()});
 
+    $('.bone').css( 'min-width', d_diamond);
 
 };
 
