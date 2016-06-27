@@ -15,12 +15,17 @@ var diamond_menu_item_img = $('.diamond_menu>li img');
 
 var resize_blc = function(){
 
-    content_element.css('height', $(window).height()- footer_element.height() +'px');
+    var content_element_wd = $(window).height()- footer_element.height();
+
+    if (content_element_wd < 468){ content_element_wd= 468};
+
+    content_element.css('height', content_element_wd +'px');
 
     square_element.css('height', content_element.height() + 20);
     square_element.css('width',  square_element.height());
 
     var d_diamond = square_element.height();                       /*Диагональ ромба*/
+
     var w_diamond = d_diamond / Math.sqrt(2);                      /*Сторона ромба*/
     var delta_diamond = (square_element.height() - w_diamond)/2;   /*Величина смещения*/
 
@@ -49,7 +54,14 @@ var resize_blc = function(){
 
     diamond_menu_item_img.css({'height': diamond_menu.height() , 'width': diamond_menu.height()});
 
-    $('.bone').css( 'min-width', d_diamond);
+    if (d_diamond> 468){
+                         $('.bone').css( 'min-width', d_diamond)
+                       }
+    else
+                       {
+                         $('.bone').css( 'min-width', 468);
+
+                       }
 
 };
 

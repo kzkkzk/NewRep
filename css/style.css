@@ -66,27 +66,18 @@ address {font-style: normal;}
 .diamond_menu{ width: 100%; height: 65px; text-align: justify; margin: 0; margin-top: 10px;}
 .diamond_menu li{ width: 100%; display: inline-block; margin: 0; margin-right: 1px;}
 
-
-
 /* FOOTER */
 .footer{ width: 100%; height: 65px; bottom: 0; left:0; position: absolute; background-color: #2a2a2c; z-index: 2}
 
-.footer_links,
-.footer_promokod,
-.footer_logo{ height: 100%; display: inline-block; position: absolute;}
+.footer ul{ position: absolute; left: 3%; top: 20px;}
+.footer ul li{ margin-right: 45px; display: inline-block;}
+.footer ul li a{ font-family: "Georgia"; font-size: 12px; font-style: italic;  color: white; text-decoration: underline;}
 
-.footer_links{  min-width: 275px; width: 20%; left: 0;}
-.footer_promokod{ width: 80%; right: 0;}
-
-.footer .footer_links ul{ position: absolute; top: 20px; right: 0px;}
-.footer .footer_links ul li{ margin-right: 45px; display: inline-block;}
-.footer .footer_links ul li a{ font-family: "Georgia"; font-size: 12px; font-style: italic;  color: white; text-decoration: underline;}
-
-.promokey{ margin-top: 13px; position: absolute; right: 170px;}
-.promokey p{ margin-top: 10px; margin-left: 4px; font-family: "13184"; font-size: 10px; color: white;}
+.promokey{ top: 20px; position: absolute; right: 13%;}
+.promokey p{ margin-top: 3px; margin-left: 4px; font-family: "13184"; font-size: 10px; color: white;}
 .promokey input{ width: 155px; height: 14px; border: 2px solid #3c3c3d; border-radius: 2px; background-color: #1c1c1c; font-family: "13184"; font-size: 10px; color: white;}
 
-.logo{ right: 20px; padding: 10px 0; position: absolute;}
+.logo{ right: 1%; padding: 10px 0; position: absolute;}
 
 /*—À”∆≈¡Õ€≈  À¿——€ ƒÀﬂ Œ“À¿ƒ »*/
 .test{ position: fixed;}
