@@ -13,7 +13,13 @@ var diamond_menu     = $('.diamond_menu');
 var diamond_menu_item= $('.diamond_menu>li');
 var diamond_menu_item_img = $('.diamond_menu>li img');
 
+var i = 1;
+
 var resize_blc = function(){
+
+
+    $( '#testp').html( i++);
+    $( '#testp1').html( $(window).height()- footer_element.height());
 
     var content_element_wd = $(window).height()- footer_element.height();
 
@@ -38,9 +44,9 @@ var resize_blc = function(){
     gbottom_element.css( 'height', h_gbottom + 'px');
     gbottom_element.css( 'top', h_gtop);
 
-    tlc_element.css( 'border-width', gtop_element.height() + 'px');
+    tlc_element.css( 'border-width', gtop_element.height() + 1 + 'px');
     tlc_element.css( 'width', square_element.css('margin-left'));
-    blc_element.css( 'border-width', gbottom_element.height() + 'px');
+    blc_element.css( 'border-width', gbottom_element.height() + 1 + 'px');
 
     var w_blc_element = tlc_element.width() + gtop_element.height() + Math.sqrt( Math.pow( (square_element.height()*Math.sqrt(2) - w_diamond/2) ,2) - Math.pow( gbottom_element.height(), 2)) - gbottom_element.height() - 30;
 
@@ -67,5 +73,7 @@ var resize_blc = function(){
 
 $(window).load( resize_blc);
 $(window).resize( resize_blc);
+
+setInterval( resize_blc, 5000);
 
 

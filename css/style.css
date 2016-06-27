@@ -83,3 +83,5 @@ address {font-style: normal;}
 .test{ position: fixed;}
 .info{ padding: 60px 60px; font-size: 15px;}
 .brd{ border: 1px solid black;}
+#testp,
+#testp1{ font-size: 300%; margin-left: -50px;}
