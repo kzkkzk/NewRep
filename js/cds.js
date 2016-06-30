@@ -1,19 +1,19 @@
-var square_element  = $('.main_square');
-var diamond_element = $(".main_diamond");
+var square_element         = $('.main_square');
+var diamond_element        = $(".main_diamond");
 
-var gtop_element    = $('.GTop');
-var tlc_element     = $(".tlc");
-var gbottom_element = $('.GBottom');
-var blc_element     = $(".blc");
+var gtop_element           = $('.GTop');
+var tlc_element            = $(".tlc");
+var gbottom_element        = $('.GBottom');
+var blc_element            = $(".blc");
 
-var footer_element  = $('.footer');
-var content_element = $('.content');
+var footer_element         = $('.footer');
+var content_element        = $('.content');
 
-var diamond_menu     = $('.diamond_menu');
-var diamond_menu_item= $('.diamond_menu>li');
-var diamond_menu_item_img = $('.diamond_menu>li img');
-
-var i = 1;
+var diamond_menu           = $('.diamond_menu');
+var diamond_menu_item      = $('.diamond_menu>li');
+var diamond_menu_item_lchld= $('.diamond_menu>li:last-child');
+var diamond_menu_item_img  = $('.diamond_menu>li img');
+var diamond_menu_video     = $('.diamond_menu_video');
 
 var resize_blc = function(){
 
@@ -27,11 +27,6 @@ var resize_blc = function(){
     var realwidth  = $(window).width();
 
     if( realheight< minheight){ realheight= minheight}
-
-    i++;
-
-    $( '#testp1').html( i);
-    $( '#testp').html( $(window).height());
 
     var content_element_wd = realheight- footer_element.height();
 
@@ -62,25 +57,26 @@ var resize_blc = function(){
 
     blc_element.css( 'width', w_blc_element + 'px');
 
-    diamond_menu.css( 'height', (diamond_element.height() - 54) / 4 );
+    diamond_menu.css( 'height', (diamond_element.height() - 30) / 4 );
 
-    var mr_menu_item = (diamond_menu.width() - diamond_menu.height() * 4) / 4 - 4;
+    var mr_menu_item = ((diamond_menu.width() - diamond_menu.height() * 4) / 4)- 3;
 
     diamond_menu_item.css( {'height': diamond_menu.height() , 'width': diamond_menu.height(), 'margin-right': mr_menu_item});
+    diamond_menu_item_lchld.css('margin-right', 0);
 
     diamond_menu_item_img.css({'height': diamond_menu.height() , 'width': diamond_menu.height()});
+
+    diamond_menu_video.css('width', diamond_menu_item.width()*2   + diamond_menu_item.css('margin-right').replace('px','')*2);
+    diamond_menu_video.css('height', diamond_menu_item.height()*2 + diamond_menu_item.css('margin-right').replace('px','')*2);
 
     if (d_diamond > footer_element.width())
     {
         var marginleft = (d_diamond - footer_element.width())/2;
-        //  content_element.css({'margin-left': -marginleft +'px', 'width': content_element.width() + marginleft});
         content_element.css('margin-left', -marginleft +'px');
-        //      content_element.css('width', realwidth + marginleft +'px');
     }
     else
     {
         content_element.css('margin-left', 0);
-        //       content_element.css('width', realwidth);
     }
     content_element.css('min-width', 100 + '%' + marginleft);
 };
@@ -88,6 +84,6 @@ var resize_blc = function(){
 $(window).load( resize_blc);
 $(window).resize( resize_blc);
 $(window).on("orientationchange", resize_blc);
- setInterval( resize_blc, 5000);
+// setInterval( resize_blc, 5000);
 
 
