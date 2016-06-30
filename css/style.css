@@ -44,7 +44,7 @@ address {font-style: normal;}
 
 /* CONTENT */
 
-.content{ width: 100%; overflow: hidden; position: relative;}
+.content{ overflow: hidden; position: relative;}
 
 .main_square{ width: 100%; height: 100%; position: relative; margin: 0 auto;}
 

@@ -24,6 +24,7 @@ var resize_blc = function(){
     $('.bone').css( {'min-width': minwidth,'min-height': minheight});
 
     var realheight = $(window).height();
+    var realwidth  = $(window).width();
 
     if( realheight< minheight){ realheight= minheight}
 
@@ -69,6 +70,19 @@ var resize_blc = function(){
 
     diamond_menu_item_img.css({'height': diamond_menu.height() , 'width': diamond_menu.height()});
 
+    if (d_diamond > footer_element.width())
+    {
+        var marginleft = (d_diamond - footer_element.width())/2;
+        //  content_element.css({'margin-left': -marginleft +'px', 'width': content_element.width() + marginleft});
+        content_element.css('margin-left', -marginleft +'px');
+        //      content_element.css('width', realwidth + marginleft +'px');
+    }
+    else
+    {
+        content_element.css('margin-left', 0);
+        //       content_element.css('width', realwidth);
+    }
+    content_element.css('min-width', 100 + '%' + marginleft);
 };
 
 $(window).load( resize_blc);
