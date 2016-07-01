@@ -1,24 +1,24 @@
-var square_element         = $('.main_square');
-var square_elemen_divmenu  = $('.main_square_divmenu');
-var square_elemen_menu     = $('.main_square_menu');
-var square_elemen_menu_item= $('.main_square_menu>li');
-var square_elemen_menu_itema= $('.main_square_menu>li>a')
+var square_element               = $('.main_square');
+var square_elemen_divmenu        = $('.main_square_divmenu');
+var square_elemen_menu           = $('.main_square_menu');
+var square_elemen_menu_item      = $('.main_square_menu>li');
+var square_elemen_menu_itema     = $('.main_square_menu>li>a');
 var square_elemen_menu_item_lchld= $('.main_square_menu>li:last-child');
-var diamond_element        = $(".main_diamond");
+var diamond_element              = $(".main_diamond");
 
-var gtop_element           = $('.GTop');
-var tlc_element            = $(".tlc");
-var gbottom_element        = $('.GBottom');
-var blc_element            = $(".blc");
+var gtop_element                 = $('.GTop');
+var tlc_element                  = $(".tlc");
+var gbottom_element              = $('.GBottom');
+var blc_element                  = $(".blc");
 
-var footer_element         = $('.footer');
-var content_element        = $('.content');
+var footer_element               = $('.footer');
+var content_element              = $('.content');
 
-var diamond_menu           = $('.diamond_menu');
-var diamond_menu_item      = $('.diamond_menu>li');
-var diamond_menu_item_lchld= $('.diamond_menu>li:last-child');
-var diamond_menu_item_img  = $('.diamond_menu>li img');
-var diamond_menu_video     = $('.diamond_menu_video');
+var diamond_menu                 = $('.diamond_menu');
+var diamond_menu_item            = $('.diamond_menu>li');
+var diamond_menu_item_lchld      = $('.diamond_menu>li:last-child');
+var diamond_menu_item_img        = $('.diamond_menu>li img');
+var diamond_menu_video           = $('.diamond_menu_video');
 
 var resize_blc = function(){
 
@@ -95,6 +95,15 @@ var resize_blc = function(){
     }
     content_element.css('min-width', 100 + '%' + marginleft);
 };
+
+diamond_menu_item.click( function(){
+    $(this).css({'height': diamond_element.height(), 'width': diamond_element.height(), 'position': 'absolute'});
+    $(this).animate( {'top': 0, 'left': 0}, 500);
+    $(' a, img', this).animate({'height': diamond_element.height(), 'width': diamond_element.height()}, 1500,
+        function(){ diamond_element.rotate( {duration: 1000, angle: -45, animateTo: 0} )});
+
+
+});
 
 $(window).load( resize_blc);
 $(window).resize( resize_blc);
