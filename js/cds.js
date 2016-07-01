@@ -68,18 +68,16 @@ var resize_blc = function(){
 
     diamond_menu_item.css( {'height': diamond_menu.height() , 'width': diamond_menu.height(), 'margin-right': mr_menu_item});
     diamond_menu_item_lchld.css('margin-right', 0);
-    square_elemen_menu_itema.css( {'height': diamond_menu.height(), 'width': diamond_menu.width()});
-
-
 
     diamond_menu_item_img.css({'height': diamond_menu.height() , 'width': diamond_menu.height()});
 
     diamond_menu_video.css('width', diamond_menu_item.width()*2   + diamond_menu_item.css('margin-right').replace('px','')*2);
     diamond_menu_video.css('height', diamond_menu_item.height()*2 + diamond_menu_item.css('margin-right').replace('px','')*2);
 
-    square_elemen_divmenu.css({'height': diamond_menu_item.height(), 'top': gtop_element.height()});
-    square_elemen_menu_item.css('width', diamond_menu_item.width());
-    square_elemen_menu.css( 'width', square_elemen_divmenu.height()*4+ 90);
+    square_elemen_divmenu.css({'height': diamond_menu_item.height()*0.83, 'top': gtop_element.height()});
+    square_elemen_menu_item.css('width', diamond_menu_item.width()*0.83);
+    square_elemen_menu.css( 'width', square_elemen_divmenu.height()*4+ 200);
+    square_elemen_menu_itema.css( {'height': diamond_menu.height()*0.83, 'width': diamond_menu.width()});
 
     var mrsquare_elemen_menu_item = (square_elemen_menu.width() - square_elemen_menu_item.width()*4 - 40)/4;
 
