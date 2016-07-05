@@ -94,7 +94,7 @@ var resize_blc = function(){
 
     if (description_window_en == 1)                                     /* Ã≈Õﬁ –¿— –€“Œ */
     {
-        ths_obj.css({'height': diamond_menu.height()+ 2, 'width': diamond_menu.width()+2, 'top': 0, 'left': 0, 'z-index': 5});
+        ths_obj.css({'height': diamond_menu.height(), 'width': diamond_menu.width(), 'top': 0, 'left': 0, 'z-index': 5});
         ths_obj.parent().parent().css({'top': 0, 'left': 0, 'z-index': 5});
 
         mr_diamond_element = diamond_element.css('left').replace('px','')*2;
@@ -216,7 +216,7 @@ close_description.click( function(){
                     }, 1000,
                     function () {
 
-                        ths_obj.css({'height': ths_height, 'width': ths_height});
+                        ths_obj.css({'height': diamond_menu_item.height(), 'width': diamond_menu_item.width()});
                         diamond_element.rotate({duration: 500, angle: 0, animateTo: -45});
                         setTimeout(function () {
                             diamond_element.animate({'left': diamond_left, 'right': diamond_right}, 1000,
