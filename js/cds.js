@@ -20,15 +20,6 @@ var content_element              = $('.content');
 var diamond_menu                 = $('.diamond_menu');
 var diamond_menu_item            = $('.menu_item a img');
 
-/*
-var diamond_menu                 = $('.diamond_menu');
-var diamond_menu_item            = $('.diamond_menu>li');
-var diamond_menu_item_lchld      = $('.diamond_menu>li:last-child');
-var diamond_menu_item_img        = $('.diamond_menu>li img');
-var diamond_menu_video           = $('.diamond_menu_video');
-
-*/
-
 var description_window_en = 0;
 
 var resize_blc = function(){
@@ -77,45 +68,41 @@ var resize_blc = function(){
 
 /* œŒ—“–Œ≈Õ»≈ Ã≈Õﬁ */
 
+        var mrgl = diamond_menu.width() *0.05/3;
+        var mrgb = diamond_menu.height()*0.05/3;
+
+        diamond_menu_item.css({'height': diamond_menu.height()*0.95/4, 'width': diamond_menu.width()*0.95/4});
+        $('.itm9 a img').css({'height': diamond_menu.height()*0.95/2 + mrgl, 'width': diamond_menu.width()*0.95/2 + mrgb});
+
+        $('.itm1').css( {'top':   0,                                    'left':  0});
+        $('.itm2').css( {'top':   0,                                    'left':  diamond_menu_item.height() + mrgl});
+        $('.itm3').css( {'top':   0,                                    'left': (diamond_menu_item.height() + mrgl)*2});
+        $('.itm4').css( {'top':   0,                                    'left': (diamond_menu_item.height() + mrgl)*3});
+        $('.itm5').css( {'top':   diamond_menu_item.height() + mrgb,    'left':  0});
+        $('.itm6').css( {'top':   diamond_menu_item.height() + mrgb,    'left':  diamond_menu_item.height() + mrgl});
+        $('.itm7').css( {'top':   diamond_menu_item.height() + mrgb,    'left': (diamond_menu_item.height() + mrgl)*2});
+        $('.itm8').css( {'top':   diamond_menu_item.height() + mrgb,    'left': (diamond_menu_item.height() + mrgl)*3});
+        $('.itm9').css( {'top':  (diamond_menu_item.height() + mrgb)*2, 'left':  0});
+        $('.itm10').css( {'top': (diamond_menu_item.height() + mrgb)*2, 'left': (diamond_menu_item.height() + mrgl)*2});
+        $('.itm11').css( {'top': (diamond_menu_item.height() + mrgb)*2, 'left': (diamond_menu_item.height() + mrgl)*3});
+        $('.itm12').css( {'top': (diamond_menu_item.height() + mrgb)*3, 'left': (diamond_menu_item.height() + mrgl)*2});
+        $('.itm13').css( {'top': (diamond_menu_item.height() + mrgb)*3, 'left': (diamond_menu_item.height() + mrgl)*3});
 
 
-    if (description_window_en == 0)                                     /* Œ¡€◊ÕŒ≈ —Œ—“ŒﬂÕ»≈ Ã≈Õﬁ */
+    diamond_element_description.css({'left': 30+'%', 'top': 50+'%'});
+
+
+    if (description_window_en == 1)                                     /* Ã≈Õﬁ –¿— –€“Œ */
     {
-        diamond_menu_item.css({'height': diamond_menu.height()*0.9/4, 'width': diamond_menu.width()*0.9/4});
+        ths_obj.css({'height': diamond_menu.height(), 'width': diamond_menu.width(), 'top': 0, 'left': 0, 'z-index': 5});
+        ths_obj.parent().parent().css({'top': 0, 'left': 0, 'z-index': 5});
 
-        var mrg = diamond_menu.height()*0.1/3;
-
-        $('.itm1').css( {'top': 0, 'left': '0'});
-        $('.itm2').css( {'top': 0, 'left':  diamond_menu_item.height() + mrg + 'px'});
-        $('.itm3').css( {'top': 0, 'left': (diamond_menu_item.height() + mrg)*2});
-        $('.itm4').css( {'top': 0, 'left': (diamond_menu_item.height() + mrg)*3});
-
-
-    }
-    else                                                              /* Ã≈Õﬁ –¿— –€“Œ */
-    {
-        diamond_menu_item.css({'height': diamond_menu.height(), 'width': diamond_menu.width()});
-    }
-
-
-
-
-
-/*
-   diamond_menu.css( 'height', (diamond_element.height() - 30) / 4 );
-
-    var mr_menu_item = ((diamond_menu.width() - diamond_menu.height() * 4) / 4)- 3;
-
-    diamond_element_description.css({'left': delta_diamond*3, 'top': gtop_element.height() + 1, 'right': delta_diamond*3, 'bottom': delta_diamond});
-
-    diamond_menu_item.css( {'height': diamond_menu.height() , 'width': diamond_menu.height(), 'margin-right': mr_menu_item});
-    diamond_menu_item_lchld.css('margin-right', 0);
-
-    diamond_menu_item_img.css({'height': diamond_menu.height() , 'width': diamond_menu.height()});
-
-    diamond_menu_video.css('width', diamond_menu_item.width()*2   + diamond_menu_item.css('margin-right').replace('px','')*2);
-    diamond_menu_video.css('height', diamond_menu_item.height()*2 + diamond_menu_item.css('margin-right').replace('px','')*2);
-*/
+        diamond_element.css({'left': diamond_element.css('left').replace('px','')- mr_diamond_element, 'right': diamond_element.css('right').replace('px','') - - mr_diamond_element}, 1000);
+        diamond_element_description.css({'left': -mr_diamond_element/2, 'top': gtop_element.height() + 1, 'right': -mr_diamond_element/2, 'bottom': mr_diamond_element/2}, 1000,
+            function(){
+                mdd_brd.css({'border-width': diamond_element_description.height(), 'width': square_element.height() - diamond_element_description.height()}, 250);
+            });
+    };
 
     square_elemen_divmenu.css({'height': diamond_menu_item.height()*0.83, 'top': gtop_element.height()});
     square_elemen_menu_item.css('width', diamond_menu_item.width()*0.83);
@@ -155,97 +142,118 @@ var descr_bottom = 0;
 
 var ths_obj;
 
+/* –¿— –€“»≈ Ã≈Õﬁ */
+
 diamond_menu_item.click( function(){
-    description_window_en= 1;
 
-    ths_height = $(this).css('height');
+    if( description_window_en== 0)
+    {
 
-    ths_obj = $(this);
+        description_window_en= 1;
 
-    $(this).css({'height': diamond_element.height(), 'width': diamond_element.height(), 'position': 'absolute'});
-    ths_top = $(this).css('top');
-    ths_left = $(this).css('top');
+        ths_height = $(this).css('height');
 
-    $(this).animate( {'top': 0, 'left': 0, 'opacity': 1}, 500);
-    $(' a, img', this).animate({'height': diamond_element.height(), 'width': diamond_element.height()}, 1000,
-        function()
-        {
-            diamond_element.rotate( {duration: 500, angle: -45, animateTo: 0});
+        ths_obj = $(this);
 
-            var mr_diamond_element = diamond_element.css('left').replace('px','')*2;
+        ths_top = $(this).css('top');
+        ths_left = $(this).css('left');
 
-            diamond_left = diamond_element.css('left');
-            diamond_right = diamond_element.css('right');
-            diamond_top = diamond_element.css('top');
-            diamond_bottom= diamond_element.css('bottom');
+        ths_obj.parent().parent().animate( {'top': 0, 'left': 0, 'z-index': 5}, 500, function(){
 
-            diamond_element.animate({'left': diamond_element.css('left').replace('px','')- mr_diamond_element, 'right': diamond_element.css('right').replace('px','') - - mr_diamond_element}, 1000);
+        ths_obj.animate({'height': diamond_element.height(), 'width': diamond_element.height()}, 1000,
+            function()
+            {
+                diamond_element.rotate( {duration: 500, angle: -45, animateTo: 0});
 
-            descr_left   = diamond_element_description.css('left');
-            descr_top    = diamond_element_description.css('top');
-            descr_right  = diamond_element_description.css('right');
-            descr_bottom = diamond_element_description.css('bottom');
+                mr_diamond_element = diamond_element.css('left').replace('px','')*2;
 
-            diamond_element_description.animate({'left': -mr_diamond_element/2, 'top': gtop_element.height() + 1, 'right': -mr_diamond_element/2, 'bottom': mr_diamond_element/2}, 1000,
-            function(){
-               mdd_brd.animate({'border-width': diamond_element_description.height(), 'width': square_element.height() - diamond_element_description.height()}, 250);
+                diamond_left = diamond_element.css('left');
+                diamond_right = diamond_element.css('right');
+                diamond_top = diamond_element.css('top');
+                diamond_bottom= diamond_element.css('bottom');
+
+                diamond_element.animate({'left': diamond_element.css('left').replace('px','')- mr_diamond_element, 'right': diamond_element.css('right').replace('px','') - - mr_diamond_element}, 1000);
+
+                descr_left   = diamond_element_description.css('left');
+                descr_top    = diamond_element_description.css('top');
+                descr_right  = diamond_element_description.css('right');
+                descr_bottom = diamond_element_description.css('bottom');
+
+
+                diamond_element_description.animate({'left': -mr_diamond_element/2, 'top': gtop_element.height() + 1, 'right': -mr_diamond_element/2, 'bottom': mr_diamond_element/2}, 1000,
+                function(){
+                   mdd_brd.animate({'border-width': diamond_element_description.height(), 'width': square_element.height() - diamond_element_description.height()}, 250);
+                });
+
             });
 
-
         });
-    square_elemen_divmenu.hide( 500);
+
+        square_elemen_divmenu.hide( 500);
+    }
+
 });
+
+/* «¿ –€“»≈ Ã≈Õﬁ */
 
 close_description.click( function(){
 
-    description_window_en= 0;
+    if( description_window_en == 1) {
+        description_window_en = 0;
 
-    mdd_brd.animate({'border-width': 0, 'width': 0}, 200,
-        function()
-        {
-            diamond_element_description.animate({'left': descr_left, 'top': descr_top, 'right': descr_right, 'bottom': descr_bottom}, 1000,
-            function()
-            {
+        mdd_brd.animate({'border-width': 0, 'width': 0}, 200,
+            function () {
+                diamond_element_description.animate({
+                        'left': descr_left,
+                        'top': descr_top,
+                        'right': descr_right,
+                        'bottom': descr_bottom
+                    }, 1000,
+                    function () {
 
-                ths_obj.css({'height': ths_height, 'width': ths_height});
-                diamond_element.rotate({duration: 500, angle: 0, animateTo: -45});
-                setTimeout( function ()
-                {
-                    diamond_element.animate({'left': diamond_left, 'right': diamond_right}, 1000,
-                        function()
-                        {
-                            $(' a, img', ths_obj).animate({'height': ths_height,'width': ths_height,'position': 'relative'}, 1000,
-                            function()
-                            {
-                                    ths_obj.animate({'top': ths_top, 'left': ths_left, 'opacity': 1, position: 'relative'}, 1000, function()
-                                    {
-                                        square_elemen_divmenu.show( 250);
-                                    }), 250
-                            });
+                        ths_obj.css({'height': ths_height, 'width': ths_height});
+                        diamond_element.rotate({duration: 500, angle: 0, animateTo: -45});
+                        setTimeout(function () {
+                            diamond_element.animate({'left': diamond_left, 'right': diamond_right}, 1000,
+                                function () {
+                                    $(' a, img', ths_obj).animate({
+                                            'height': ths_height,
+                                            'width': ths_height,
+                                            'position': 'relative'
+                                        }, 1000,
+                                        function () {
+                                            ths_obj.animate({
+                                                'top': ths_top,
+                                                'left': ths_left,
+                                                'opacity': 1,
+                                                position: 'relative'
+                                            }, 1000, function () {
+                                                square_elemen_divmenu.show(250);
+                                            }), 250
+                                        });
 
-                        });
-                }, 250);
+                                });
+                        }, 250);
 
 
+                        //      setTimeout(function(){ ths_obj.animate( {'top': ths_top, 'left': ths_left, 'opacity': 1}, 7000)});
+                    });
 
-
-                //      setTimeout(function(){ ths_obj.animate( {'top': ths_top, 'left': ths_left, 'opacity': 1}, 7000)});
             });
 
-        });
 
-
-  //  ths_obj.animate( {'top': ths_top, 'left': ths_left, 'opacity': 1}, 1500,
-    //    function()
-      //  {
+        //  ths_obj.animate( {'top': ths_top, 'left': ths_left, 'opacity': 1}, 1500,
+        //    function()
+        //  {
         //    diamond_element.rotate( {duration: 1000, angle: 0, animateTo: -45});
 
-//            var mr_diamond_element = diamond_element.css('left').replace('px','')*2;
+        //            var mr_diamond_element = diamond_element.css('left').replace('px','')*2;
 
-//
+        //
 
-  //      });
-//    square_elemen_divmenu.show( 1500);
+        //      });
+        //    square_elemen_divmenu.show( 1500);
+    };
 });
 
 
