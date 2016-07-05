@@ -18,10 +18,16 @@ var footer_element               = $('.footer');
 var content_element              = $('.content');
 
 var diamond_menu                 = $('.diamond_menu');
+var diamond_menu_item            = $('.menu_item a img');
+
+/*
+var diamond_menu                 = $('.diamond_menu');
 var diamond_menu_item            = $('.diamond_menu>li');
 var diamond_menu_item_lchld      = $('.diamond_menu>li:last-child');
 var diamond_menu_item_img        = $('.diamond_menu>li img');
 var diamond_menu_video           = $('.diamond_menu_video');
+
+*/
 
 var description_window_en = 0;
 
@@ -69,7 +75,34 @@ var resize_blc = function(){
 
     blc_element.css( 'width', w_blc_element + 'px');
 
-    diamond_menu.css( 'height', (diamond_element.height() - 30) / 4 );
+/* œŒ—“–Œ≈Õ»≈ Ã≈Õﬁ */
+
+
+
+    if (description_window_en == 0)                                     /* Œ¡€◊ÕŒ≈ —Œ—“ŒﬂÕ»≈ Ã≈Õﬁ */
+    {
+        diamond_menu_item.css({'height': diamond_menu.height()*0.9/4, 'width': diamond_menu.width()*0.9/4});
+
+        var mrg = diamond_menu.height()*0.1/3;
+
+        $('.itm1').css( {'top': 0, 'left': '0'});
+        $('.itm2').css( {'top': 0, 'left':  diamond_menu_item.height() + mrg + 'px'});
+        $('.itm3').css( {'top': 0, 'left': (diamond_menu_item.height() + mrg)*2});
+        $('.itm4').css( {'top': 0, 'left': (diamond_menu_item.height() + mrg)*3});
+
+
+    }
+    else                                                              /* Ã≈Õﬁ –¿— –€“Œ */
+    {
+        diamond_menu_item.css({'height': diamond_menu.height(), 'width': diamond_menu.width()});
+    }
+
+
+
+
+
+/*
+   diamond_menu.css( 'height', (diamond_element.height() - 30) / 4 );
 
     var mr_menu_item = ((diamond_menu.width() - diamond_menu.height() * 4) / 4)- 3;
 
@@ -82,6 +115,7 @@ var resize_blc = function(){
 
     diamond_menu_video.css('width', diamond_menu_item.width()*2   + diamond_menu_item.css('margin-right').replace('px','')*2);
     diamond_menu_video.css('height', diamond_menu_item.height()*2 + diamond_menu_item.css('margin-right').replace('px','')*2);
+*/
 
     square_elemen_divmenu.css({'height': diamond_menu_item.height()*0.83, 'top': gtop_element.height()});
     square_elemen_menu_item.css('width', diamond_menu_item.width()*0.83);
@@ -123,6 +157,7 @@ var ths_obj;
 
 diamond_menu_item.click( function(){
     description_window_en= 1;
+
     ths_height = $(this).css('height');
 
     ths_obj = $(this);
