@@ -94,14 +94,19 @@ var resize_blc = function(){
 
     if (description_window_en == 1)                                     /* Ã≈Õﬁ –¿— –€“Œ */
     {
-        ths_obj.css({'height': diamond_menu.height(), 'width': diamond_menu.width(), 'top': 0, 'left': 0, 'z-index': 5});
+        ths_obj.css({'height': diamond_menu.height()+ 2, 'width': diamond_menu.width()+2, 'top': 0, 'left': 0, 'z-index': 5});
         ths_obj.parent().parent().css({'top': 0, 'left': 0, 'z-index': 5});
 
+        mr_diamond_element = diamond_element.css('left').replace('px','')*2;
+
+        diamond_left = diamond_element.css('left');
+        diamond_right = diamond_element.css('right');
+        diamond_top = diamond_element.css('top');
+        diamond_bottom= diamond_element.css('bottom');
+
         diamond_element.css({'left': diamond_element.css('left').replace('px','')- mr_diamond_element, 'right': diamond_element.css('right').replace('px','') - - mr_diamond_element}, 1000);
-        diamond_element_description.css({'left': -mr_diamond_element/2, 'top': gtop_element.height() + 1, 'right': -mr_diamond_element/2, 'bottom': mr_diamond_element/2}, 1000,
-            function(){
-                mdd_brd.css({'border-width': diamond_element_description.height(), 'width': square_element.height() - diamond_element_description.height()}, 250);
-            });
+        diamond_element_description.css({'left': -mr_diamond_element/2, 'top': gtop_element.height() + 1, 'right': -mr_diamond_element/2, 'bottom': mr_diamond_element/2});
+        mdd_brd.css({'border-width': diamond_element_description.height(), 'width': square_element.height() - diamond_element_description.height()});
     };
 
     square_elemen_divmenu.css({'height': diamond_menu_item.height()*0.83, 'top': gtop_element.height()});
