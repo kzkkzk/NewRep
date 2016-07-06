@@ -171,7 +171,6 @@ diamond_menu_item.click( function(){
 
     if( description_window_en== 0)
     {
-
         description_window_en= 1;
 
         ths_height = $(this).css('height');
@@ -204,7 +203,7 @@ diamond_menu_item.click( function(){
                 descr_right  = diamond_element_description.css('right');
                 descr_bottom = diamond_element_description.css('bottom');
 
-
+                diamond_element_description.css({'display': 'inline-block'});
                 diamond_element_description.animate({'left': -mr_diamond_element/2, 'top': gtop_element.height() + 1, 'right': -mr_diamond_element/2, 'bottom': mr_diamond_element/2}, 1000,
                 function(){
                    mdd_brd.animate({'border-width': diamond_element_description.height(), 'width': square_element.height() - diamond_element_description.height()}, 250);
@@ -235,6 +234,8 @@ close_description.click( function(){
                         'bottom': descr_bottom
                     }, 1000,
                     function () {
+
+                        diamond_element_description.css({'display': 'none'});
 
                         var item_top;
                         var item_left;
@@ -328,6 +329,7 @@ close_description.click( function(){
                                                         'left': ths_left
                                                     }, 1000, function () {
                                                         square_elemen_divmenu.show(250);
+
                                                     }), 250
                                                 });
 
