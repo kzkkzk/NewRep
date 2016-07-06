@@ -80,7 +80,9 @@ var resize_blc = function(){
     gbottom_element.css( 'top', h_gtop);
 
     tlc_element.css( 'border-width', gtop_element.height() + 1 + 'px');
-    tlc_element.css( 'width', square_element.css('margin-left'));
+
+    tlc_element.css( 'width', square_element.offset().left);
+
     blc_element.css( 'border-width', gbottom_element.height() + 1 + 'px');
 
     var w_blc_element = tlc_element.width() + gtop_element.height() + Math.sqrt( Math.pow( (square_element.height()*Math.sqrt(2) - w_diamond/2) ,2) - Math.pow( gbottom_element.height(), 2)) - gbottom_element.height() - 40;
