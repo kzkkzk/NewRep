@@ -130,7 +130,11 @@ var resize_blc = function(){
     square_elemen_divmenu.css({'height': diamond_menu_item.height()*0.83, 'top': gtop_element.height()});
     square_elemen_menu_item.css('width', diamond_menu_item.width()*0.83);
     square_elemen_menu.css( 'width', square_elemen_divmenu.height()*4+ 200);
-    square_elemen_menu_itema.css( {'height': diamond_menu.height()*0.83, 'width': diamond_menu.width()});
+
+
+
+    square_elemen_menu_itema.css( {'height': square_elemen_divmenu.height(), 'width': diamond_menu.width()});
+
 
     var mrsquare_elemen_menu_item = (square_elemen_menu.width() - square_elemen_menu_item.width()*4 - 40)/4;
 
@@ -222,18 +226,21 @@ diamond_menu_item.click( function(){
 
 close_description.click( function(){
 
-    if( description_window_en == 1) {
+    if( description_window_en == 1)
+    {
         description_window_en = 0;
 
         mdd_brd.animate({'border-width': 0, 'width': 0}, 200,
-            function () {
+            function ()
+            {
                 diamond_element_description.animate({
                         'left': descr_left,
                         'top': descr_top,
                         'right': descr_right,
                         'bottom': descr_bottom
                     }, 1000,
-                    function () {
+                    function ()
+                    {
 
                         diamond_element_description.css({'display': 'none'});
 
@@ -242,6 +249,10 @@ close_description.click( function(){
 
                         if (ths_obj.parent().parent().is('.itm9')) {
                             dmih = diamond_menu.height() * 0.95 / 2 + mrgl;
+                        }
+                        else
+                        {
+                            dmih= diamond_menu_item.height();
                         }
 
                         if (ths_obj.parent().parent().is('.itm1')) {
@@ -312,29 +323,19 @@ close_description.click( function(){
 
 
                             ths_obj.parent().parent().css({ 'z-index': 1});
-                            ths_obj.parent().parent().animate( {'left': item_left, 'top': item_top}, 500, function(){
-
+                            ths_obj.parent().parent().animate( {'left': item_left, 'top': item_top}, 500,
+                            function()
+                            {
                                 diamond_element.rotate({duration: 700, angle: 0, animateTo: -45});
-                                setTimeout(function () {
-                                    diamond_element.animate({'left': diamond_left, 'right': diamond_right}, 1000,
-                                        function () {
-                                            $(' a, img', ths_obj).animate({
-                                                    'height': ths_height,
-                                                    'width': ths_height
-
-                                                }, 1000,
-                                                function () {
-                                                    ths_obj.animate({
-                                                        'top': ths_top,
-                                                        'left': ths_left
-                                                    }, 1000, function () {
-                                                        square_elemen_divmenu.show(250);
-
-                                                    }), 250
-                                                });
-
-                                        });
-                                }, 250);
+                                diamond_element.animate({'left': diamond_left, 'right': diamond_right}, 1000,
+                                function ()
+                                {
+                                    ths_obj.animate({ 'top': ths_top, 'left': ths_left}, 0,
+                                    function ()
+                                    {
+                                        square_elemen_divmenu.show(250);
+                                    }), 50
+                                });
                             });
                         });
                     });
