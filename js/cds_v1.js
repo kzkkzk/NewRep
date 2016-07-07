@@ -60,6 +60,8 @@ var resize_blc = function(){
 
     content_element.css('height', content_element_wd +'px');
 
+
+
     square_element.css('height', content_element.height() + 20);
     square_element.css('width',  square_element.height());
 
@@ -69,6 +71,8 @@ var resize_blc = function(){
     var delta_diamond = (square_element.height() - w_diamond)/2;   /*Величина смещения*/
 
     diamond_element.css({ 'left': delta_diamond, 'top': delta_diamond, 'right': delta_diamond, 'bottom': delta_diamond});
+
+
 
 
 
@@ -88,6 +92,10 @@ var resize_blc = function(){
     var w_blc_element = tlc_element.width() + gtop_element.height() + Math.sqrt( Math.pow( (square_element.height()*Math.sqrt(2) - w_diamond/2) ,2) - Math.pow( gbottom_element.height(), 2)) - gbottom_element.height() - 40;
 
     blc_element.css( 'width', w_blc_element + 'px');
+
+
+
+
 
 /* ПОСТРОЕНИЕ МЕНЮ */
 
