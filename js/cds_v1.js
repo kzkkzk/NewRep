@@ -118,8 +118,10 @@ var resize_blc = function(){
         $('.itm7').css( {'top':   diamond_menu_item.height() + mrgb,    'left': (diamond_menu_item.height() + mrgl)*2});
         $('.itm8').css( {'top':   diamond_menu_item.height() + mrgb,    'left': (diamond_menu_item.height() + mrgl)*3});
         $('.itm9').css( {'top':  (diamond_menu_item.height() + mrgb)*2, 'left':  0});
+
         $('.itm10').css( {'top': (diamond_menu_item.height() + mrgb)*2, 'left': (diamond_menu_item.height() + mrgl)*2});
         $('.itm11').css( {'top': (diamond_menu_item.height() + mrgb)*2, 'left': (diamond_menu_item.height() + mrgl)*3});
+
         $('.itm12').css( {'top': (diamond_menu_item.height() + mrgb)*3, 'left': (diamond_menu_item.height() + mrgl)*2});
         $('.itm13').css( {'top': (diamond_menu_item.height() + mrgb)*3, 'left': (diamond_menu_item.height() + mrgl)*3});
 

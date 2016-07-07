@@ -47,7 +47,7 @@ address {font-style: normal;}
 .content{ overflow: hidden; position: relative;}
 
 .main_square{ width: 100%; height: 100%; position: relative; margin: 0 auto;}
-.main_square_divmenu{ width: 100%; position: absolute; z-index: 6; display: none;}
+.main_square_divmenu{ width: 100%; position: absolute; z-index: 6;}
 .main_square_menu{ height: 100%; position: relative; margin: 0 auto;}
 .main_square_menu li{ height: 100%; display: inline-block; border: 5px solid black; background-color: black;  text-align: center; vertical-align: middle; box-shadow: 5px 5px 10px rgba(0,0,0,0.5); transition: color 1s, transform 0.5s}
 
@@ -66,7 +66,7 @@ address {font-style: normal;}
     -webkit-transform: rotate(-45deg);  /* Safari y Chrome */
 }
 
-.main_square_menu a{ width: 100%; height: 100%; font-family: "Georgia"; font-size: 2vh; line-height: 1.5em; font-style: italic;  color: white; text-decoration: none; text-align: center; vertical-align: middle; transition: color 1s, transform 0.5s}
+.main_square_menu a{ width: 100%; height: 100%; font-family: "Georgia"; line-height: 1.5em; font-style: italic;  color: white; text-decoration: none; text-align: center; vertical-align: middle; transition: color 1s, transform 0.5s}
 
 .main_diamond{ z-index: 1; position: absolute; margin: 0 auto; background-color: #de1a25;
     -moz-transform: rotate(-45deg);  /* Firefox */

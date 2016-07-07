@@ -26,10 +26,6 @@ var resize_window= function()
     /*¬€—Œ“¿  ŒÕ“≈Õ“¿*/
     content_el_h= realheight- footer_el.height();
     content_el.height( content_el_h);
-
-
-
-
 };
 
 
@@ -94,33 +90,68 @@ var form_diamon_menu= function()
 {
     diamond_menu_el.css( {'top': '5%', 'left': '5%', 'bottom': '5%', 'right': '5%'});
 
-    diamond_menu_marginl= diamond_menu_el.width()*0.05;
-    diamond_menu_marginb= diamond_menu_el.height()*0.05;
+    diamond_menu_marginl= diamond_menu_el.width()*0.05/4;
+    diamond_menu_marginb= diamond_menu_el.height()*0.05/4;
 
     diamond_menu_item_el.css({'height': diamond_menu_el.height()*0.95/4, 'width': diamond_menu_el.width()*0.95/4});
     diamond_menu_item_el9.css({'height': diamond_menu_el.height()*0.95/2 + diamond_menu_marginl, 'width': diamond_menu_el.width()*0.95/2 + diamond_menu_marginb});
 
+    var i;
+    var mn= 0;
 
+    var marginl= diamond_menu_item_el.height() + diamond_menu_marginl;
+    var marginb= diamond_menu_item_el.height() + diamond_menu_marginb;
 
+    for( i=1; i<14; i++ )
+    {
+        if (i<5)
+        {
+            $('.menu_item.itm'+i).css({'top': 0, 'left': marginl*mn});
+            mn++;
 
-
-
-
-
-
+        }
+        else if( i>4 && i< 9)
+        {
+            if (i == 5){ mn= 0}
+            $('.menu_item.itm'+i).css({'top': marginb, 'left': marginl*mn});
+            mn++;
+        }
+        else if( i==9){ $('.menu_item.itm'+i).css({'top': marginb*2, 'left': 0});}
+        else if( i>9 && i<12)
+        {
+            if (i == 10){ mn= 2}
+            $('.menu_item.itm'+i).css({'top': marginb*2, 'left': marginl*mn});
+            mn++;
+        }
+        else if( i>11 && i<14)
+        {
+            if (i == 12){ mn= 2}
+            $('.menu_item.itm'+i).css({'top': marginb*3, 'left': marginl*mn});
+            mn++;
+        }
+    }
 };
 
 /*√À¿¬ÕŒ≈ Ã≈Õﬁ*/
 
-    main_square_divmenu_el= $('.main_square_divmenu');
+main_square_divmenu_el= $('.main_square_divmenu');
 main_square_menu = $('.main_square_menu');
+main_square_menu_item= $('.main_square_menu li');
+main_square_menu_itemlast= $('.main_square_menu li:last-child');
 
+var main_square_menu_item_mr= 0; /*Œ“—“”œ —œ–¿¬¿ Ã≈∆ƒ” ›À≈Ã≈Õ“¿Ã»*/
 
 var form_mainmenu= function()
 {
     main_square_divmenu_el.css({'top': gtop_el_h+ 10});
     main_square_menu.width( main_diamond_width);
 
+    main_square_menu_item.css({ 'width': diamond_menu_item_el.width()*0.8, 'height': diamond_menu_item_el.height()*0.83, 'fontSize': parseFloat(diamond_menu_item_el.width()*0.8)/6+1});
+
+    main_square_menu_item_mr= (main_square_menu.width()- main_square_menu_item.width()*4)/3 - main_square_menu_item.css('borderRightWidth').replace('px','')*4;
+
+    main_square_menu_item.css({'margin-right': main_square_menu_item_mr});
+    main_square_menu_itemlast.css({ 'margin-right': 0});
 };
 
 
@@ -133,6 +164,6 @@ var full_reset= function()
     form_mainmenu();
 };
 
-$(window).load( full_reset);
-$(window).resize( full_reset);
+$(window).on('load', full_reset);
+$(window).on('resize', full_reset);
 $(window).on("orientationchange", full_reset);
