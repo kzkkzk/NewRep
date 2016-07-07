@@ -105,6 +105,10 @@ var resize_blc = function(){
         diamond_menu_item.css({'height': diamond_menu.height()*0.95/4, 'width': diamond_menu.width()*0.95/4});
         $('.itm9 a img').css({'height': diamond_menu.height()*0.95/2 + mrgl, 'width': diamond_menu.width()*0.95/2 + mrgb});
 
+
+
+
+
         $('.itm1').css( {'top':   0,                                    'left':  0});
         $('.itm2').css( {'top':   0,                                    'left':  diamond_menu_item.height() + mrgl});
         $('.itm3').css( {'top':   0,                                    'left': (diamond_menu_item.height() + mrgl)*2});

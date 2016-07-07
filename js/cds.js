@@ -80,9 +80,39 @@ var form_background= function()
     blc_el.css({'width': tlc_el.width()- - tlc_el.css('borderRightWidth').replace('px',''), 'border-width': gbottom_el_h+ 1});
 };
 
+
+/*лемч пнлаю*/
+
+var diamond_menu_el= $('.diamond_menu');
+var diamond_menu_item_el= $('.menu_item');
+var diamond_menu_item_el9= $('.menu_item.itm9');
+
+var diamond_menu_marginl= 0; /*ядбхц щкелемрнб лемч якебю*/
+var diamond_menu_marginb= 0; /*ядбхц щкелемрнб лемч ямхгс*/
+
+var form_diamon_menu= function()
+{
+    diamond_menu_el.css( {'top': '5%', 'left': '5%', 'bottom': '5%', 'right': '5%'});
+
+    diamond_menu_marginl= diamond_menu_el.width()*0.05;
+    diamond_menu_marginb= diamond_menu_el.height()*0.05;
+
+    diamond_menu_item_el.css({'height': diamond_menu_el.height()*0.95/4, 'width': diamond_menu_el.width()*0.95/4});
+    diamond_menu_item_el9.css({'height': diamond_menu_el.height()*0.95/2 + diamond_menu_marginl, 'width': diamond_menu_el.width()*0.95/2 + diamond_menu_marginb});
+
+
+
+
+
+
+
+
+
+};
+
 /*цкюбмне лемч*/
 
-main_square_divmenu_el= $('.main_square_divmenu');
+    main_square_divmenu_el= $('.main_square_divmenu');
 main_square_menu = $('.main_square_menu');
 
 
@@ -91,16 +121,15 @@ var form_mainmenu= function()
     main_square_divmenu_el.css({'top': gtop_el_h+ 10});
     main_square_menu.width( main_diamond_width);
 
-
-
-
 };
+
 
 var full_reset= function()
 {
     resize_window();
     form_diamond();
     form_background();
+    form_diamon_menu();
     form_mainmenu();
 };
 
