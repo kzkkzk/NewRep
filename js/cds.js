@@ -26,6 +26,8 @@ var resize_window= function()
     /*ВЫСОТА КОНТЕНТА*/
     content_el_h= realheight- footer_el.height();
     content_el.height( content_el_h);
+
+
 };
 
 
@@ -74,6 +76,9 @@ var form_background= function()
 
     /*ШИРИНА НИЖНЕЙ ТРАПЕЦИИ =  ширина верхней трапеции + ширина бордера верхней трапеции*/
     blc_el.css({'width': tlc_el.width()- - tlc_el.css('borderRightWidth').replace('px',''), 'border-width': gbottom_el_h+ 1});
+
+    /*ПОЛОЖЕНИЕ ДИВА С ОПИСАНИЕМ*/
+    main_diamond_element_description_el.css( {'top': gtop_el.height(), 'left': tlc_el.width()- - tlc_el.css('borderRightWidth').replace('px','')});
 };
 
 
@@ -154,6 +159,24 @@ var form_mainmenu= function()
     main_square_menu_itemlast.css({ 'margin-right': 0});
 };
 
+/*ОТКРЫТИЕ РОМБА*/
+
+var main_diamond_element_description_el= $('.main_diamond_description');
+var mdd_brd_el= $('.mdd_brd');
+
+var open_diamond= function()
+{
+
+    if (main_diamond_element_description_el.height()> 25) /*ИНАЧЕ ПОСЛЕ ВЫСТАВЛЕНИЯ БОРДЕРА НЕМНОГО ИЗМЕНЯЕТСЯ ВЫСОТА*/
+    {
+        mdd_brd_el.css({'border-width': main_diamond_element_description_el.height()});
+    }
+
+
+
+}
+
+
 
 var full_reset= function()
 {
@@ -162,7 +185,10 @@ var full_reset= function()
     form_background();
     form_diamon_menu();
     form_mainmenu();
+
 };
+
+diamond_menu_item_el.on('click', open_diamond);
 
 $(window).on('load', full_reset);
 $(window).on('resize', full_reset);

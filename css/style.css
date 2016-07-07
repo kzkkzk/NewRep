@@ -75,7 +75,7 @@ address {font-style: normal;}
     -webkit-transform: rotate(-45deg);  /* Safari y Chrome */
 }
 
-.main_diamond_description{ position: absolute; z-index: 1; background-color: white; display: none;}
+.main_diamond_description{ position: absolute; z-index: 1; background-color: white;}
 .mdd_brd{ display: inline-block; height: 0; border-bottom: 0 solid #fefc98; border-right: 114px solid transparent; position: relative;}
 .main_diamond_description .close_window{ position: absolute; top: 5px; right: 5px; z-index: 1;}
 
