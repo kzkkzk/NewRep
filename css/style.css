@@ -92,6 +92,7 @@ address {font-style: normal;}
 .menu_item a,
 .menu_item a img{ width: 100%; height: 100%}
 .mousehover{ opacity: 0.7;}
+.menu_float_item{ position: absolute; z-index: 15; display: none;}
 
 /* FOOTER */
 .footer{ width: 100%; height: 65px; left:0; position: absolute; background-color: #2a2a2c; z-index: 2}
