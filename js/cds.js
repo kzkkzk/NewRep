@@ -141,7 +141,15 @@ var form_diamon_menu= function()
 
     if( diamond_open == 1)
     {
+        marg_diamond= main_diamond_el.css('left').replace('px','')*2;
+        main_diamond_el.css({'left': main_diamond_el.css('left').replace('px','')- marg_diamond, 'right': main_diamond_el.css('right').replace('px','') - - marg_diamond});
+
         menu_item_float_el_img.css({'height': diamond_menu_el.height(), 'width': diamond_menu_el.height()});
+
+        main_diamond_element_description_el.css({'width': main_diamond_el.width()+ marg_diamond/2, 'bottom': main_diamond_el.css('bottom'), 'border-width': main_diamond_element_description_el.height()});
+        mdd_brd_el.css({'border-width': main_diamond_element_description_el.height()});
+
+
     }
 };
 
@@ -169,7 +177,6 @@ var form_mainmenu= function()
 
 /*ОТКРЫТИЕ РОМБА*/
 
-
 var main_diamond_element_description_el= $('.main_diamond_description');
 var mdd_brd_el= $('.mdd_brd');
 
@@ -178,18 +185,17 @@ var menu_item_float_el= $('.menu_item_float'); /*Плавающий див для отображения м
 var menu_item_float_el_img= menu_item_float_el.find('img'); /*Картинка плавающего дива*/
 
 var diamond_open= 0;  /*триггер на раскрытый ромб*/
-var anim_duration= 200; /*Задержка для анимации*/
+var anim_duration= 300; /*Задержка для анимации*/
 var marg_diamond= 0; /*Смещение ромба при открытии*/
 
 diamond_menu_item_el.on('click', function()
 {
     if( diamond_open== 0)
     {
+        main_square_divmenu_el.hide( anim_duration);
+        diamond_open= 1;
 
         ths_obj= $(this);
-
-        main_diamond_element_description_el.css({'bottom': main_diamond_el.css('bottom')});
-        mdd_brd_el.css({'border-width': main_diamond_element_description_el.height()});
 
         menu_item_float_el.css({ 'top': ths_obj.css('top'), 'left': ths_obj.css('left'), 'z-index': 15, 'display': 'inline-block'});
         menu_item_float_el_img.css({ 'width': ths_obj.width(), 'height': ths_obj.height()});
@@ -204,51 +210,29 @@ diamond_menu_item_el.on('click', function()
         function()
         {
             main_diamond_el.rotate( {duration: anim_duration, angle: -45, animateTo: 0});
-        }
-        );
 
-
-
-        diamond_open= 1;
-
-
-
-
-        /*
-
-                mr_diamond_element = diamond_element.css('left').replace('px','')*2;
-
-                diamond_left = diamond_element.css('left');
-                diamond_right = diamond_element.css('right');
-                diamond_top = diamond_element.css('top');
-                diamond_bottom= diamond_element.css('bottom');
-
-                diamond_element.animate({'left': diamond_element.css('left').replace('px','')- mr_diamond_element, 'right': diamond_element.css('right').replace('px','') - - mr_diamond_element}, animation_duration,
-                    function()
-                    {
-                        diamond_element.rotate( {duration: animation_duration, angle: -45, animateTo: 0});
-                    });
-
-                setTimeout( function()
+        });
+        setTimeout( function()
+        {
+            main_diamond_element_description_el.css({'bottom': main_diamond_el.css('bottom'), 'display': 'inline-block'});
+            main_diamond_element_description_el.animate({'width': main_diamond_el.width()+ marg_diamond/2 }, anim_duration,
+                function()
                 {
-                    descr_left   = diamond_element_description.css('left');
-                    descr_top    = diamond_element_description.css('top');
-                    descr_right  = diamond_element_description.css('right');
-                    descr_bottom = diamond_element_description.css('bottom');
-
-                    diamond_element_description.css({'display': 'inline-block'});
-                    diamond_element_description.animate({'left': -mr_diamond_element/2, 'top': gtop_element.height() + 1, 'right': -mr_diamond_element/2, 'bottom': mr_diamond_element/2}, animation_duration,
-                        function(){
-                            mdd_brd.animate({'border-width': diamond_element_description.height(), 'width': square_element.height() - diamond_element_description.height()}, 0);
-                        });
-
-                }, animation_duration);
-
-                square_elemen_divmenu.hide( animation_duration);
-            }
-
-        */
+                    mdd_brd_el.css({'border-width': main_diamond_element_description_el.height()});
+                });
+        }, anim_duration*1.5);
     }
+});
+
+/*СХЛОПЫВАНИЕ РОМБА*/
+
+var close_window_el= $('.close_window');
+
+close_window_el.on('click', function()
+{
+
+
+
 });
 
 
