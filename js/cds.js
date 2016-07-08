@@ -17,6 +17,17 @@ jQuery(document).ready(function ($) {
 
     $(document.body, '.bone').css({'min-width': minwidth, 'min-height': minheight});
 
+//    var min_wh= function( varwidth, varheight) /*Проверка на ограничение размеров*/
+//    {
+//        if ( $(document.body).css('min-width').replace('px','')< varwidth)
+//        {
+//            $(document.body, '.bone').css({'min-width': varwidth});
+//        }
+//        if ( $(document.body).css('min-height').replace('px','')< varheight)
+//        {
+ //           $(document.body, '.bone').css({'min-height': varheight});
+//        }
+//    };
 
     /*ФУНКЦИЯ РЕСАЙЗА WINDOW*/
 
@@ -60,6 +71,7 @@ jQuery(document).ready(function ($) {
             'bottom': main_diamond_margin
         });
 
+//        min_wh( main_diamond_el.width(), main_diamond_el.height());
 
     };
 
@@ -274,6 +286,7 @@ jQuery(document).ready(function ($) {
                     });
             }, anim_duration * 1.5);
         }
+ //       min_wh( main_diamond_el.width()+ main_diamond_element_description_el.width(), main_diamond_el.height()+ main_diamond_element_description_el.height());
     });
 
     /*СХЛОПЫВАНИЕ РОМБА*/
